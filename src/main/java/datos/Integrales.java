@@ -28,13 +28,8 @@ public class Integrales {
        //Vamos a convertir a un arreglo de bytes
        
        byte arreglito[]=cadena.getBytes();
-  System.out.println("El numero de casillas son "+arreglito.length);
-        System.out.println("La A en bye es "+arreglito[0]);
-        System.out.println("El hola mundo en bytes es:");
-        //Usamos un for 
-        for(int xx=0;xx<arreglito.length;xx++){
-            System.out.print(arreglito[xx]);
-        }
+
+      
         //uSANDO EL CICLO FOR MEJORADO
         for(byte z:arreglito){
            System.out.print(z);
