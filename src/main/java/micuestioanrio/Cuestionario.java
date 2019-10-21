@@ -77,7 +77,7 @@ public class Cuestionario {
        //Termina la pregunta 2
        
        //Creamos un objeto de tipo Cuestionario
-       Cuestionario cuestionario=new Cuestionario();
+      
        //Generamos un Listado de perguntas
        List<Pregunta> preguntas=new ArrayList<>();
        //Agregamos a este listado las dos preguntas, p1, p2
