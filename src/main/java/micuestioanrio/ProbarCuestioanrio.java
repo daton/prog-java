@@ -10,11 +10,11 @@ public class ProbarCuestioanrio {
     public static void main(String[] args) {
       
        
-     for(Pregunta p:new Cuestionario().getPreguntas()) {
-        
-         System.out.println(p.getTitulo());
-         for(Opcion o: p.getOpciones()){
-             System.out.println(o.getTitulo());
+        for (Pregunta p : new Cuestionario().getPreguntas()) {
+
+            System.out.println(p.getTitulo());
+            for (Opcion o : p.getOpciones()) {
+                System.out.println(o.getTitulo());
          }
      } 
             
