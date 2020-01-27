@@ -16,6 +16,7 @@ public class VentanaHola extends javax.swing.JFrame {
      */
     public VentanaHola() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
