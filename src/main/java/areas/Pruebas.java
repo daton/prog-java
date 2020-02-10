@@ -27,6 +27,11 @@ public class Pruebas {
         c.r=4;
         System.out.println("El circulo "+c.calcularArea());
         
+         Triangulo t=new Triangulo();
+         t.b=5;
+         t.h=6;
+         System.out.println("El area del riangulo es "+t.calcularArea());
+        
                
     }
 }
