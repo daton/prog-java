@@ -16,5 +16,10 @@ public class Circulo extends Poligono{
         float area=2*3.1416f*r;
         return area;
     }
+
+    @Override
+    public String obtenerNombre() {
+        return "Yo soy un circulo";
+    }
     
 }

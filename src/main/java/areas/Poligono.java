@@ -12,6 +12,7 @@ package areas;
 public abstract class Poligono {
     
     public abstract float calcularArea();
+    public abstract String obtenerNombre();
         
         
     

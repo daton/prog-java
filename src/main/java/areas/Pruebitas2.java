@@ -43,7 +43,21 @@ public class Pruebitas2 {
         
         System.out.println("El arreglo x es de tamaño "+x.length);
         System.out.println("El arreglo mensaje es de tamaño "+mensaje.length);
+       // Poligono[]poligonos=new Poligono[7];
+       Poligono[] poligonos={r1,r2,c1,c2,c3,t1,t2};
+      //  poligonos[0]=r1;
+      //  poligonos[1]=r2;
+      //  poligonos[2]=c1;
+      //  poligonos[3]=c2;
+      // poligonos[4]=c3;
+      // poligonos[5]=t1;
+      //  poligonos[6]=t2;
+        
+        for(Poligono pol:poligonos){
+ System.out.println("El area es:"+pol.calcularArea() +" y "+pol.obtenerNombre());
+        }
         
         
+       
     }
 }

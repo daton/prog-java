@@ -17,5 +17,11 @@ float h;
         float area=(b*h)/2;
         return area;
     }
+
+    @Override
+    public String obtenerNombre() {
+        return "Yo soy un triangulo";
+    }
+    
     
 }

@@ -18,5 +18,10 @@ public class Rectangulo extends Poligono{
         float area=b*h;
         return area;
     }
+
+    @Override
+    public String obtenerNombre() {
+        return "Soy un rectangulo";
+    }
     
 }
