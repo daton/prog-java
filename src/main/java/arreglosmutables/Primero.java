@@ -10,7 +10,7 @@ import java.util.*;
 public class Primero {
     public static void main(String[] args) {
        //Primero vamos a ver los List
-       List<String> nombres=new List<>();
+       List<String> nombres=new ArrayList<>();
        ArrayList<Integer> enteros=new ArrayList<>();
        nombres.add("Juan");
        nombres.add("Ana");
