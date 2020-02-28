@@ -8,6 +8,7 @@ package entregable3;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
 /**
@@ -18,18 +19,19 @@ public class MiCuestionario extends javax.swing.JFrame {
 
     //DEclaramos un arrayList
     List<JRadioButton> radios;
-  
+    List<Opcion> opciones;
+
     public MiCuestionario() {
         initComponents();
-        radios=new ArrayList<>();
+        radios = new ArrayList<>();
         //LLenamos este list cpon los darios buttons
         radios.add(r1);
         radios.add(r2);
         radios.add(r3);
         radios.add(r4);
         //Iteramos estyos junto con la pregunta
-        labelTitulo.setText(obtenerPregunta().getTitulo()); 
-        for(int i=0;i<radios.size();i++){
+        labelTitulo.setText(obtenerPregunta().getTitulo());
+        for (int i = 0; i < radios.size(); i++) {
             radios.get(i).setText(obtenerPregunta().getOpciones().get(i).getTitulo());
         }
     }
@@ -55,15 +57,19 @@ public class MiCuestionario extends javax.swing.JFrame {
 
         buttonGroup1.add(r1);
         r1.setText("jRadioButton1");
+        r1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         buttonGroup1.add(r2);
         r2.setText("jRadioButton2");
+        r2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         buttonGroup1.add(r3);
         r3.setText("jRadioButton3");
+        r3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         buttonGroup1.add(r4);
         r4.setText("jRadioButton4");
+        r4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         checar.setText("Checar Respuesta");
         checar.addActionListener(new java.awt.event.ActionListener() {
@@ -76,37 +82,38 @@ public class MiCuestionario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(checar, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addGap(0, 90, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(r4)
-                            .addComponent(r3)
-                            .addComponent(r2)
-                            .addComponent(r1))))
-                .addGap(0, 203, Short.MAX_VALUE))
+                            .addComponent(checar, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(r2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                                .addComponent(r1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(r3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(r4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 103, Short.MAX_VALUE))
+                    .addComponent(labelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(47, 47, 47)
+                .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(r1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(r2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(r3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(r4)
                 .addGap(18, 18, 18)
                 .addComponent(checar)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         pack();
@@ -114,8 +121,9 @@ public class MiCuestionario extends javax.swing.JFrame {
 
     private void checarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checarActionPerformed
         // TODO add your handling code here:
-        
-        radios.get(0).isSelected();
+
+     if(checarAcierto())JOptionPane.showMessageDialog(this,"Muy bien!,correcto!");
+     else JOptionPane.showMessageDialog(this,"Mal, reprobado!!", "REPROBADO!!", JOptionPane.ERROR_MESSAGE );
     }//GEN-LAST:event_checarActionPerformed
 
     /**
@@ -163,35 +171,51 @@ public class MiCuestionario extends javax.swing.JFrame {
     private javax.swing.JRadioButton r4;
     // End of variables declaration//GEN-END:variables
 
-public Pregunta obtenerPregunta(){
-   //Generamos las opciones
-        Opcion op1=new Opcion();
+    public Pregunta obtenerPregunta() {
+        //Generamos las opciones
+        Opcion op1 = new Opcion();
         op1.setTitulo("Popocatepetl");
         op1.setCorrecta(false);
-        
-        Opcion op2=new Opcion();
+
+        Opcion op2 = new Opcion();
         op2.setTitulo("Pico de Orizaba");
         op2.setCorrecta(false);
-        
-        Opcion op3=new Opcion();
+
+        Opcion op3 = new Opcion();
         op3.setTitulo("Everest");
         op3.setCorrecta(true);
-        
-        Opcion op4=new Opcion();
+
+        Opcion op4 = new Opcion();
         op4.setTitulo("Aconcahua");
         op4.setCorrecta(false);
         //Las agregamos a un list
-        List<Opcion> opciones=new ArrayList<>();
+        opciones = new ArrayList<>();
         opciones.add(op1);
         opciones.add(op2);
         opciones.add(op3);
         opciones.add(op4);
         //Generamos la pregunta:
-        Pregunta p1=new Pregunta();
+        Pregunta p1 = new Pregunta();
         p1.setTitulo("Cual es la montaña mas alta del mundo?");
         p1.setOpciones(opciones);
-    return p1;    
-}
+        return p1;
+    }
 
+    public boolean checarAcierto() {
+        //Paso 1 obtener el indice seleccionado por el usuario
+        //Del list que se llama radios y obtener el indice de la opcion 
+        //correcta
+        boolean esCorrecta = false;
+        for (int i = 0; i < opciones.size(); i++) {
+            if (opciones.get(i).isCorrecta() && radios.get(i).isSelected()) {
+                System.out.println("ES correcta");
+                esCorrecta = true;
+                break; //Rompe el ciclo for si se cumple la condicion
+            }
+
+        }
+
+        return esCorrecta;
+    }
 
 }
